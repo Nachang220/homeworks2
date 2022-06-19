@@ -1,7 +1,15 @@
-const modal = document.getElementById("modal_main");
-const modalClose = modal.querySelector(".modal__close")
+const modals = document.querySelectorAll(".modal");
+const showSuccess = document.querySelector(".show-success");
 
-modal.classList.add("modal_active");
-modalClose.onclick = () => {
-  modal.classList.remove("modal_active");
-}
+modals[0].classList.add("modal_active");
+modals.forEach(item => {
+  const modalClose = item.querySelector("div.modal__close");
+  modalClose.onclick = () => {
+    item.classList.remove("modal_active");
+  };
+});
+
+showSuccess.onclick = () => {
+  modals[0].classList.remove("modal_active");
+  modals[1].classList.add("modal_active");
+};
